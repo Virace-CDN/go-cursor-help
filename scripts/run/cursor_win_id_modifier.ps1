@@ -10,8 +10,8 @@ $BLUE = "`e[34m"
 $NC = "`e[0m"
 
 # 配置文件路径
-$STORAGE_FILE = "$env:APPDATA\Cursor\User\globalStorage\storage.json"
-$BACKUP_DIR = "$env:APPDATA\Cursor\User\globalStorage\backups"
+$STORAGE_FILE = "$env:SCOOP\apps\cursor\current\data\user-data\User\globalStorage\storage.json"
+$BACKUP_DIR = "$env:SCOOP\apps\cursor\current\data\user-data\User\globalStorage\backups"
 
 # 检查管理员权限
 function Test-Administrator {
@@ -51,7 +51,7 @@ Write-Host ""
 function Get-CursorVersion {
     try {
         # 主要检测路径
-        $packagePath = "$env:LOCALAPPDATA\Programs\cursor\resources\app\package.json"
+        $packagePath = "$env:SCOOP\apps\cursor\current\resources\app\package.json"
         
         if (Test-Path $packagePath) {
             $packageJson = Get-Content $packagePath -Raw | ConvertFrom-Json
